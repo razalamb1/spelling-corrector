@@ -5,7 +5,7 @@ import time
 
 
 def make_dictionary(dictionary_file):
-    with open("english.txt") as f:
+    with open(dictionary_file) as f:
         english = []
         for line in f:
             line = line[:-1]

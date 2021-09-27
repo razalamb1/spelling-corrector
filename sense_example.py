@@ -1,9 +1,9 @@
 from spelling_corrector import spelling_corrector
 
 
-with open("test.txt") as f:
+with open("text_files/test.txt") as f:
     text_string = f.read()
-output = spelling_corrector(text_string, "english.txt")
-f = open("output.txt", "w")
+output = spelling_corrector(text_string, "text_files/english.txt")
+f = open("text_files/output.txt", "w")
 f.write(output)
 f.close()
