@@ -1,16 +1,18 @@
-# HW #2: Spelling Correction
-# Submission for both Erika Fox and Raza Lamb
+# Python Spelling Corrector
 import numpy as np
 import re
 import time
 
-with open("english.txt") as f:
-    english = []
-    for line in f:
-        line = line[:-1]
-        english.append(line)
+
+def make_dictionary(dictionary_file):
+    with open("english.txt") as f:
+        english = []
+        for line in f:
+            line = line[:-1]
+            english.append(line)
+            pass
         pass
-    pass
+    return english
 
 
 def tokenization(text_string):
@@ -49,7 +51,7 @@ def calc_distance(word, word2):
     return lev[rows - 1, columns - 1]
 
 
-def check_word(index, list):
+def check_word(index, list, english):
     if len(list[index]) == 0:
         return False
     elif (
@@ -63,10 +65,11 @@ def check_word(index, list):
         return False
 
 
-def spelling_corrector(text_string):
+def spelling_corrector(text_string, dictionary_file):
+    english = make_dictionary(dictionary_file)
     word_list = tokenization(text_string)
     for i in range(len(word_list)):
-        if check_word(i, word_list):
+        if check_word(i, word_list, english):
             distlist = []
             for j in english:
                 distlist.append(calc_distance(word_list[i], j))
@@ -77,17 +80,4 @@ def spelling_corrector(text_string):
         pass
     doc = detokenization(word_list)
     return doc
-
-
-if __name__ == "__main__":
-    start = time.time()
-    with open("test.txt") as f:
-        text_string = f.read()
-    output = spelling_corrector(text_string)
-    f = open("output.txt", "w")
-    f.write(output)
-    f.close()
-    end = time.time()
-    print(end - start)
-
     pass

@@ -1,4 +1,4 @@
 .DS_Store
 .vscode/
-*.txt
 gen_corrupted.py
+__pycache__/
