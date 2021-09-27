@@ -1,5 +1,5 @@
-# Bare Bones Spelling Corrector
+# Python Spelling Corrector
 
-This project is a from-scratch spelling corrector in Python. The word list used as the dictionary is available [here](https://raw.githubusercontent.com/first20hours/google-10000-english/master/google-10000-english.txt), ordered by decreasing frequency.
+This project is a from-scratch spelling corrector in Python. The word list used as the dictionary is available [here](https://raw.githubusercontent.com/first20hours/google-10000-english/master/google-10000-english.txt), ordered by decreasing frequency. The program uses the dictionary to identify potentially mispelled words, and then uses Levenshtein distance (calculated using dynamic programming) to implement a correction. Also included is a write-up detailing an example application. The spelling corrector was applied to a systematically corrupted version of Jane Austen's *Sense and Sensibility* and then compared to the original text. Also included is the code used to corrupt the book and the file implementing the test case.
 
-Also included is a write-up detailing an example application. The spelling corrector was applied to a systematically corrupted version of Jane Austen's *Sense and Sensibility* and then compared to the original text. Also included is the code used to corrupt the book and the file implementing the test case.
+This program can easily be modified to use a different dictionary, and can take any text file as an input. The text files used to create the dictionary and test the program. As is visible, if you replace these files locally with another text input, the code can be easily applied to a variety of inputs.
